@@ -46,4 +46,6 @@ pin39="pin39"
 pin40="pin40"
 
 # Update/change variables in this file
-. ./variables-override.sh
+if [ -e variables-override.sh ]; then
+  . ./variables-override.sh
+fi
