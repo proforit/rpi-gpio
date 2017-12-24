@@ -6,11 +6,15 @@
 # For debugging, run script with --debug
 debug=$(debugcheck ${@})
 
+[ $debug -eq 1 ] && echo "logfile $logfile, pins $pincheck"
+
 # Run and don't stop.
 while true; do
 
   # List of pins
   for pin in $pincheck; do
+
+    [ $debug -eq 1 ] && echo evaluating pin $pin
 
     # Get the state of the pin in a pinXXstate variable and also the state variable.
     eval pin${pin}state=$(get-gpio-pin-status $pin)
