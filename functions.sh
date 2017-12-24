@@ -58,3 +58,12 @@ epoch() {
     date +'%s'
   fi
 }
+
+# Check if --debug was passed as an argument.
+debugcheck() {
+  if [ $(grep '\-\-debug' <<< "${@}";) ]; then
+    echo 1
+  else
+    echo 0
+  fi
+}
