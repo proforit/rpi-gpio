@@ -10,7 +10,7 @@ while true; do
   for pin in $pincheck; do
 
     # Get the state of the pin in a pinXXstate variable and also the state variable.
-    eval pin${pin}state=$(get-pin-status $pin)
+    eval pin${pin}state=$(get-gpio-pin-status $pin)
     eval state=\$pin${pin}state
 
     # If the laststate variable isn't set, set it to the current state.
