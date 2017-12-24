@@ -8,7 +8,7 @@
 #  pincheck
 #  pincheck 35
 #  pincheck 30 40
-get-pin-status() {
+get-gpio-pin-status() {
   if [ $1 ] && [ $2 ]; then
     pinlow=$1
     pinhigh=$2
@@ -26,6 +26,10 @@ get-pin-status() {
 
   # Return a new line to be nice
   echo
+}
+
+set-gpio-pin-output() {
+  gpio -1 mode ${1} out && gpio -1 write ${1} 1
 }
 
 # Prints time nicely.
